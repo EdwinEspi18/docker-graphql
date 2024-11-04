@@ -21,7 +21,11 @@ jobs:
       run: docker login -u $DOCKER_USER -p $DOCKER_PASS
     - name: Build Docker Image
       run: |
-        docker build -t edwinespi18/docker-graphql:0.0.2 .
+        docker build -t edwinespi18/docker-graphql:0.0.3 .
     - name: Push Docker Image
       run: |
-        docker push edwinespi18/docker-graphql:0.0.2
+        docker push edwinespi18/docker-graphql:0.0.3
+    - name: Update tag latest Docker Image
+      run: |
+        docker build -t edwinespi18/docker-graphql .
+        docker push edwinespi18/docker-graphql
